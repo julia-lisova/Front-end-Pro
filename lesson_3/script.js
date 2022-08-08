@@ -1,4 +1,8 @@
-let captionString = `Food prices ≠ <ВИВІД ПОТОЧНОГО ДНЯ>.<ВИВІД ПОТОЧНОГО МІСЯЦЯ>.<ВИВІД ПОТОЧНОГО РОКУ>`,
+let now = new Date(), //для того щоб отримати різні параметри однієї і тієї ж дати(включно з мікросекундами)
+    day = now.getDate(),
+    month = now.getMonth() + 1,
+    year = now.getFullYear();
+let captionString = `Food prices ≠ ${day}.${month}.${year}`.replaceAll('≠', '-'),
 
     apple = `🍎`,
     applePrice = 10,
@@ -15,36 +19,6 @@ let captionString = `Food prices ≠ <ВИВІД ПОТОЧНОГО ДНЯ>.<В�
     kiwiCount = 10,
     kiwiCountryPercent = 10;
 
-captionString = captionString.replaceAll('≠', '-');
-let indexOfHyphen = captionString.indexOf(`-`),
-    now = new Date(), //для того щоб отримати різні параметри однієї і тієї ж дати(включно з мікросекундами)
-    day = now.getDate(),
-    month = now.getMonth() + 1,
-    year = now.getFullYear();
-
-// captionString = captionString.slice(0, indexOfHyphen + 2) + day + '.' + month + '.' + year;
-// console.log(captionString);
-
-// console.log(' ');
-
-// let priceString = 'Final price for ';
-
-// let appleFinalPrice = appleCount * applePrice * (1 - (appleSalePercent / 100));
-// console.log(priceString + appleCount + ' ' + apple + ' = ' + appleFinalPrice.toFixed() + ' UAH');
-
-// let orangeFinalPrice = orangeCount * orangePrice * (1 - (orangeSalePercent / 100));
-// console.log(priceString + orangeCount + ' ' + orange + ' = ' + orangeFinalPrice.toFixed() + ' UAH');
-
-// let kiwiFinalPrice = kiwiCount * kiwiPrice * (1 + (kiwiCountryPercent / 100));
-// console.log(priceString + kiwiCount + ' ' + kiwi + ' = ' + kiwiFinalPrice.toFixed() + ' UAH');
-
-// console.log(' ');
-
-// let finalPriceOfAllProducts = appleFinalPrice + orangeFinalPrice + kiwiFinalPrice;
-// console.log('Final price for all products = ' + finalPriceOfAllProducts.toFixed() + ' UAH');
-
-
-captionString = captionString.slice(0, indexOfHyphen + 2) + day + '.' + month + '.' + year;
 // captionString = captionString.slice(0, indexOfHyphen + 2) + now.toLocaleDateString(); // дата з 02.08.2022
 
 let priceString = 'Final price for ';
