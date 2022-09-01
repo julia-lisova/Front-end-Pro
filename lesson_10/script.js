@@ -89,6 +89,9 @@ const flags = [
 
 function prepareData(sports, olympic, winners, continents, flags) {
     const olympicContinents = ['Europe', 'Africa', 'America', 'Asia', 'Oceania'];
+    const flagsMap = Object.fromEntries(flags);
+    const continentsMap = Object.fromEntries(continents);
+
     let result = [];
 
     for (let s = 0; s < sports.length; s++) {
@@ -99,17 +102,17 @@ function prepareData(sports, olympic, winners, continents, flags) {
 
             for (let w = 0; w < winners.length; w++) {
 
-                // for (let f = 0; f < flags.length; f++) {
                 // не крутимо цей цикл, бо індекс країни у flags === індекс країни у continents
+                // for (let f = 0; f < flags.length; f++) {
 
-                for (let cf = 0; cf < continents.length; cf++) {
+                // не шукаємо індекс країни для заміни прапора і уточнення континенту,
+                // так як беремо їх відразу з відповідних об'єктів (flagsMap/continentsMap)
+                // for (let cf = 0; cf < continents.length; cf++) {
 
-                    if (winners[w][0] === sports[s][1] &&
-                        winners[w][2] === continents[cf][0] &&
-                        continents[cf][1] === olympicContinents[o]) {
+                if (winners[w][0] === sports[s][1] &&
+                    continentsMap[winners[w][2]] == olympicContinents[o]) {
 
-                        result[s][o] += `<div>${flags[cf][1]} - ${winners[w][1]}</div>`;
-                    }
+                    result[s][o] += `<div>${flagsMap[winners[w][2]]} - ${winners[w][1]}</div>`;
                 }
             }
         }
@@ -118,7 +121,6 @@ function prepareData(sports, olympic, winners, continents, flags) {
     result.unshift(['', ...olympic]);
     return result;
 }
-
 
 function getTable(array) {
     let TRs = [];
