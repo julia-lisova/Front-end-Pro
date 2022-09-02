@@ -4,34 +4,21 @@ const products = [
     ['mango', 20],
     ['grape', 18]
 ];
+const summerValue = (value) => value * 0.8;
 
-function getPrice(products, seasonFunc, title = '') {
-    let copiedProducts = _.cloneDeep(products);
+const winterValue = (value) => value * 2;
+
+function getPrice(products, seasonFunc) {
+    // const copiedProducts = structuredClone(products);
     // let copiedProducts = JSON.parse(JSON.stringify(products));
-    let sumPrice = copiedProducts.reduce((sum, current) => {
-        return sum + ((typeof seasonFunc === 'function') ? seasonFunc(current[1]) : (current[1]))
-    }, 0);
-    return console.log(`Sum of ${title}products - ${sumPrice}`);
+     const copiedProducts = _.cloneDeep(products);
 
-    //     let sum = 0;  
-    //     for (i = 0; i < copiedProducts.length; i++) {
-
-    //         if (typeof seasonFunc === 'function') {
-    //             copiedProducts[i][1] = seasonFunc(copiedProducts[i][1]);
-    //         }
-    //         sum += copiedProducts[i][1];
-    //     }
-    //     return console.log(`Sum of ${title}products - ${sum}`);
+    const sumPrice = copiedProducts.reduce((sum, [productName, price]) => sum + (
+        (typeof seasonFunc === 'function') ? seasonFunc(price) : price
+    ), 0);
+    return sumPrice;
 }
 
-function summerValue(value) {
-    return value * 0.8;
-}
-
-function winterValue(value) {
-    return value * 2;
-}
-
-getPrice(products, summerValue, 'summer ');
-getPrice(products, winterValue, 'winter ');
-getPrice(products);
+document.write(`<div>Sum of summer products - ${getPrice(products, summerValue)}</div>`);
+document.write(`<div>Sum of winter products - ${getPrice(products, winterValue)}</div>`);
+document.write(`<div>Sum of products - ${getPrice(products)}</div>`);
