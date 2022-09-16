@@ -17,6 +17,8 @@
 !.vscode/extensions.json
 .history/*
 
+node_modules/*
+
 # System Files
 .DS_Store
 Thumbs.db
