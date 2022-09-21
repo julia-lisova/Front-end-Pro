@@ -29,12 +29,12 @@ function renderElements(titleObj, obj){
     }
 }
 
-renderElements('lection 15');
+renderElements('lesson 15');
 renderElements('My humburger', myHumburger);
 renderElements('My cheeseburger', myCheeseburger);
 
 // document.open();
-// document.write(`<h1>lection 15</h1>`);
+// document.write(`<h1>lesson 15</h1>`);
 
 // document.write(`<h2>My humburger</h2>`);
 // document.write(`<pre>${json(myHumburger)}</pre>`);
