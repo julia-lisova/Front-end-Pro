@@ -1,5 +1,8 @@
 let square = document.createElement('div');
 square.className = 'block';
+square.style.left = 0;
+square.style.top = 0;
+
 document.body.append(square);
 
 const getRandomIntInclusive = (min, max) => {
@@ -16,20 +19,16 @@ const getRandomColor = (min, max) => {
     return `rgb(${colors.join(`,`)})`;
 }
 
-square.style.left = 0;
-square.style.top = 0;
-
-let bodyWidth = document.body.offsetWidth;
-let bodyHeight = document.body.offsetHeight;
-
-let maxHorizontalCoordinate = bodyWidth - square.offsetWidth;
-let maxVerticalCoordinate = bodyHeight - square.offsetHeight;
-
-setInterval(() => square.style.backgroundColor = getRandomColor(0, 255), 1000);
+// const maxHorizontalCoordinate = () => document.body.offsetWidth - square.offsetWidth;
+// const maxVerticalCoordinate = () => document.body.offsetHeight - square.offsetHeight;
 
 setInterval(() => {
+    const maxHorizontalCoordinate = document.body.offsetWidth - square.offsetWidth;
+    const maxVerticalCoordinate = document.body.offsetHeight - square.offsetHeight;
+
+    square.style.backgroundColor = getRandomColor(0, 255);
     square.style.left = getRandomIntInclusive(0, maxHorizontalCoordinate) + `px`;
     square.style.top = getRandomIntInclusive(0, maxVerticalCoordinate) + `px`;
-    }, 1000);
+}, 1000);
 
 
