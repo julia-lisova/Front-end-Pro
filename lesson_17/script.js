@@ -122,16 +122,17 @@ const COFFEE_TYPES = {
 };
 
 class Coffee {
-    constructor(objCoffee = {
-                    title: `Default Coffee`,
-                    ingredients: {
-                        espresso: 50,
-                        whiskey: 10,
-                        "whipped cream": 40
-                    }
-                }
-    ) {
+    constructor(objCoffee) {
         Object.assign(this, objCoffee);
+    }
+
+    static defaultCoffee = {
+        title: `Default Coffee`,
+        ingredients: {
+            espresso: 50,
+            whiskey: 10,
+            "whipped cream": 40
+        }
     }
 
     makeCoffee() {
@@ -185,7 +186,7 @@ class Dessert extends Coffee {
     }
 }
 
-let renderDefaultCoffee = new Coffee().makeCoffee();
+let renderDefaultCoffee = new Coffee(Coffee.defaultCoffee).makeCoffee();
 
 const COFFEE_TYPE = {
     Espresso: objCoffee => new Espresso(objCoffee),
