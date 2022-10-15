@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Block moving</title>
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+		}
+
+		.block{
+			position: relative;
+			width: 130px;
+			height: 130px;
+			background-image: url(yoda/yoda.gif);
+			background-size: cover;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: transform 0.6s;
+			transform-origin: 50% 100%;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="block"></div>
+
+	<script src="script.js"></script>
+</body>
+</html>
