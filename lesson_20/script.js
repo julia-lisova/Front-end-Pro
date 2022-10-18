@@ -6,11 +6,11 @@ const resetBtn = document.querySelector('#reset');
 
 form.addEventListener(`submit`, e => {
     e.preventDefault();
-    element.classList.remove('square', 'rectangle', 'circle');
-    element.classList.add(shapeSelect.value, 'show');
+
+    element.className = `element ${shapeSelect.value} show`;
     element.style.background = colorInput.value;
 });
 
 resetBtn.addEventListener('click', () => {
-    element.classList.remove('square', 'rectangle', 'circle', 'show');
+    element.className = `element`;
 });
