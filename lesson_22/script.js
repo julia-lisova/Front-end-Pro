@@ -2,14 +2,12 @@ let response = [];
 
 const getFile = (file) => {
     const request = new XMLHttpRequest();
-    request.open('GET', file);
+    request.open('GET', file, false);
     request.send();
 
-    request.addEventListener(`readystatechange`, () => {
-        if (request.readyState === 4 && request.status >= 200 && request.status < 400) {
-            response.push(...JSON.parse(request.response).children);
-        }
-    })
+    if (request.status >= 200 && request.status < 400) {
+        response.push(...JSON.parse(request.response).children);
+    }
 }
 
 getFile(`./data.json`);
