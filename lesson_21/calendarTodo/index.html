@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="meetingForm">
+      <fieldset class="meeting__form">
+        <legend>Create meeting</legend>
+        <label>
+          Meeting title:
+          <input type="text" id="meetingFormTitle" value="Daily meeting" />
+        </label>
+        <label>
+          Meeting room:
+          <select id="meetingFormRoom">
+            <!-- <option value="Red">Red</option>
+            <option value="Green">Green</option> -->
+          </select>
+        </label>
+        <label>
+          Meeting day:
+          <select id="meetingFormDay">
+            <!-- <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Friday">Friday</option> -->
+          </select>
+        </label>
+        <label>
+          Meeting hour:
+          <select id="meetingFormHour">
+            <!-- <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option> -->
+          </select>
+        </label>
+        <label>
+          Meeting participiants:
+          <select id="meetingFormParticipants" multiple required>
+            <!-- <option value="Jack">Jack</option>
+            <option value="Anna">Anna</option>
+            <option value="Ostap">Ostap</option>
+            <option value="Taras">Taras</option> -->
+          </select>
+        </label>
+        <button>Create meeting</button>
+      </fieldset>
+    </form>
+
+    <div id="roomsTables" class="rooms__tables">
+      <table id="roomGreen">
+        <caption>
+          Calendar for Green room
+        </caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10:00</td>
+            <td data-hour="10" data-day="Monday">
+              <div class="meeting__block">
+                <h3>Daily meeting</h3>
+                <p>Participants: Jack, Taras</p>
+                <button>Delete meeting</button>
+              </div>
+            </td>
+            <td data-hour="10" data-day="Tuesday"></td>
+            <td data-hour="10" data-day="Wednesday"></td>
+          </tr>
+          <tr>
+            <td>11:00</td>
+            <td data-hour="11" data-day="Monday"></td>
+            <td data-hour="11" data-day="Tuesday">
+              <div class="meeting__block">
+                <h3>Daily meeting</h3>
+                <p>Participants: Jack, Taras</p>
+                <button>Delete meeting</button>
+              </div>
+            </td>
+            <td data-hour="11" data-day="Wednesday"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

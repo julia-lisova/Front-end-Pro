@@ -1,0 +1,53 @@
+.meeting__form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.meeting__form label{
+    margin-bottom: 10px;
+}
+
+.rooms__tables table{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.rooms__tables table caption{
+    font-size: 18px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.rooms__tables table th, .rooms__tables table td{
+    border: 1px solid black;
+    padding: 7px;
+}
+
+.meeting__block{
+    background: #ff9800;
+    border-radius: 7px;
+    padding: 7px;
+    font-size: 12px;
+}
+
+.meeting__block h3{
+    margin: 0;
+}
+
+.meeting__block p{
+    margin: 0;
+}
+
+.meeting__block button{
+    margin-top: 3px;
+    border: none;
+    background: white;
+    color: crimson;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+}
