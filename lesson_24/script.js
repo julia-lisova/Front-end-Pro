@@ -5,9 +5,7 @@ const getFile = async (file) => {
         : Promise.reject([response.status, response.statusText]);
 };
 
-const getMoney = new Promise((resolve, reject) => {
-    confirm(`Do you want check balance?`) ? resolve() : reject();
-});
+const getMoney = Promise.resolve(confirm(`Do you want check balance?`));
 
 const getSelectCurrency = (defaultCurrency)=>{
     return (prompt(`Enter the currency:`, `${defaultCurrency}`) || ``)
@@ -18,14 +16,16 @@ const getSelectCurrency = (defaultCurrency)=>{
 Promise.all([
     getFile('./balance.json'),
     getFile('./bankData.json')
-]).then(([balance, bankData]) => {
+]).then(async ([balance, bankData]) => {
 
-    getMoney.then(() => {
-        showBalance(balance)
-    }).catch(() => {
-        getCash(balance, bankData)
-    }).finally(() => console.log('Thank you, have a nice day 😊'));
- });
+    try {
+        await getMoney
+            ? showBalance(balance)
+            : getCash(balance, bankData)
+    } finally {
+        console.log('Thank you, have a nice day 😊')
+    }
+});
 
 const showBalance = (balance) => {
     let selectedCurrency;
