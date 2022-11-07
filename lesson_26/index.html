@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css">
+    <title>lesson 26</title>
+</head>
+<body>
+
+<form id="comicsForm" class="comics__form">
+    <label class="form-title" for="comicsForm">Add new hero</label>
+    <div class="form-row">
+        <label for="nameHero">Name:</label>
+        <input id="nameHero" type="text" name="choiceHero" required>
+    </div>
+
+    <div class="form-row">
+        <label for="selectComics">Comics: </label>
+        <select id="selectComics" name="choiceHero" required>
+            <option value="" disabled>Choose universe</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="favourite">Add to favourite</label>
+        <input type="checkbox" name="choiceHero" id="favourite"/>
+    </div>
+
+    <div class="form-row">
+        <button class="submitButton" type="submit" name="choiceHero" id="btnSubForm">submit</button>
+        <button class="resetButton" type="reset">reset</button>
+    </div>
+</form>
+
+
+<script src="script.js"></script>
+</body>
+</html>
