@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 27 👻</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form id="taskForm">
+        <label>
+            Title: <input type="text" id="taskFormTitle" value="Task 1" required>
+        </label>
+        <label>
+            Reporter: <select id="taskFormReporter"></select>
+        </label>
+        <label>
+            Assignee: <select id="taskFormAssignee"></select>
+        </label>
+        <button>Create task</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>To do</th>
+                <th>In progress</th>
+                <th>Testing</th>
+                <th>Reopened</th>
+                <th>Done</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="taskTableTodo"></td>
+                <td id="taskTableInProgress"></td>
+                <td id="taskTableTesting"></td>
+                <td id="taskTableReopened"></td>
+                <td id="taskTableDone"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script src="script.js"></script>
+</body>
+</html>
