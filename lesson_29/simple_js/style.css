@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Montserrat", "HelveticaNeue-Regular", "Helvetica Neue Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapperTitle,
+.wrapperBtn {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.wrapperCar{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    width: 24px;
+    height: 36px;
+    box-sizing: border-box;
+    margin: 6px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+}
+
+.btn-black {
+    background-color: #2e2e2e;
+}
+
+.btn-midnight {
+    background-color: #43424f;
+}
+
+.btn-black-obs {
+    background-color: #000000;
+}
+
+.btn-blue {
+    background-color: #212252;
+}
+
+.btn-silver {
+    background-color: #a8a1a2;
+}
+
+.btn-white {
+    background-color: #ecebec;
+}
+
+.btn-red {
+    background-color: #c31030;
+}
+
+.btn-very-orange {
+    background-color: #f68b29;
+}
+
+.btn-brilliant-yellow {
+    background-color: #fbb841;
+}
+
+.btn-glacier-blue {
+    background-color: #bbcad0;
+}
+
+.btn-electric-blue {
+    background-color: #1093da;
+}
+
+.btn-green-lotus {
+    background-color: #3d7866;
+}
+
+.selected {
+    width: 26px;
+    height: 38px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2 {
+    text-align: center;
+    margin: auto 0;
+    color: #cccccc;
+    font-size: 15px;
+    bottom: 0;
+    width: 100%;
+}
+
+.tesla-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.has-animation {
+    transition: all 800ms ease;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    right: 0;
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
