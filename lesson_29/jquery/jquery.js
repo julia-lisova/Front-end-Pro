@@ -19,6 +19,7 @@ $(function () {
 
 // sendRequest
     const sendRequest = (url) => {
+        loaderShow();
         return $.ajax({
             url: url,
             // async: false,
@@ -26,6 +27,8 @@ $(function () {
             dataType: "JSON",
             success: data => data,
             error: error => console.log(error)
+        }).always(() => {
+            loaderHide();
         });
     }
 // sendRequest
