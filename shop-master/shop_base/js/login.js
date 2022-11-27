@@ -50,7 +50,7 @@ const renderLoginForm=(USER_DATA)=>{
             password: userPassword.value
         }
         const loggedUser = USER_DATA.find((user) => user.email === dataLogIn.email);
-        const userPasswordExist = loggedUser.password === dataLogIn.password;
+        const userPasswordExist = loggedUser?.password === dataLogIn.password;
 
         switch (true) {
             case !loggedUser:
