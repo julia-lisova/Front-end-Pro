@@ -1,0 +1,23 @@
+table{
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    color: #4b2626;
+}
+
+th, td{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+tr td:first-child,
+tr td:last-child {
+ text-align: center;
+}
+
+/*.done{*/
+/*    background: #54c82e1c;*/
+/*}*/
+
+/*.notDone{*/
+/*    background: #ff36361f;*/
+/*}*/
