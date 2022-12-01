@@ -34,37 +34,42 @@ const todoList = [
     }
 ];
 
-function App({arr = []}) {
-    return <React.Fragment>
-        <table>
-            <thead>
-            <tr>
-                <th>№</th>
-                <th>To do</th>
-                <th>Completed</th>
-            </tr>
-            </thead>
-            <tbody>
-            {arr.map((item, index) => <tr key={index}>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
-                <td>
-                    <Checked key={index} item={item.completed}/>
-                </td>
-            </tr>)
-            }
-            </tbody>
-        </table>
-    </React.Fragment>;
+class App extends React.Component {
+    render() {
+        const {arr = []} = this.props;
+        return <React.Fragment>
+            <table>
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>To do</th>
+                    <th>Completed</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {arr.map((item, index) => <tr key={index}>
+                        <td>{item.id}</td>
+                        <td>{item.title}</td>
+                        <td>
+                            <Checked key={index} item={item.completed}/>
+                        </td>
+                    </tr>)
+                    }
+                </tbody>
+            </table>
+        </React.Fragment>;
+    }
 }
 
-function Checked(props) {
-    return props.item ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                             className="bi bi-check2" viewBox="0 0 16 16">
-            <path
-                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-        </svg>
-        : null
+class Checked extends React.Component {
+    render(){
+        return this.props.item ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 className="bi bi-check2" viewBox="0 0 16 16">
+                <path
+                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            : null
+    }
 }
 
 root.render(<App arr={todoList}/>);
