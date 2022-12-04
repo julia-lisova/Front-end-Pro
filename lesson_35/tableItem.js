@@ -6,33 +6,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import Animals from './animals.js';
-var domContainer = document.querySelector("#root");
-var root = ReactDOM.createRoot(domContainer);
+var TableItem = function (_React$Component) {
+    _inherits(TableItem, _React$Component);
 
-var animals = [{ type: "turtle", icon: "\uD83D\uDC22" }, { type: "octopus", icon: "\uD83D\uDC19" }, { type: "fish", icon: "\uD83D\uDC20" }, { type: "flamingo", icon: "\uD83E\uDDA9" }, { type: "penguin", icon: "\uD83D\uDC27" }];
+    function TableItem() {
+        _classCallCheck(this, TableItem);
 
-var App = function (_React$Component) {
-    _inherits(App, _React$Component);
-
-    function App() {
-        _classCallCheck(this, App);
-
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (TableItem.__proto__ || Object.getPrototypeOf(TableItem)).apply(this, arguments));
     }
 
-    _createClass(App, [{
-        key: "render",
+    _createClass(TableItem, [{
+        key: 'render',
         value: function render() {
+            var item = this.props.item;
+
             return React.createElement(
-                React.Fragment,
-                null,
-                React.createElement(Animals, { animals: animals })
+                'tr',
+                { className: item.isActive ? 'chosen' : 'list' },
+                React.createElement(
+                    'td',
+                    null,
+                    item.type
+                ),
+                React.createElement(
+                    'td',
+                    null,
+                    item.icon
+                )
             );
         }
     }]);
 
-    return App;
+    return TableItem;
 }(React.Component);
 
-root.render(React.createElement(App, null));
+export default TableItem;
