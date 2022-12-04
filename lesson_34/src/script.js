@@ -47,17 +47,23 @@ class App extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-                    {arr.map((item, index) => <tr key={index}>
-                        <td>{item.id}</td>
-                        <td>{item.title}</td>
-                        <td>
-                            <Checked key={index} item={item.completed}/>
-                        </td>
-                    </tr>)
-                    }
+                {arr.map(item => <TableItem key={item.id} item={item} />)}
                 </tbody>
             </table>
         </React.Fragment>;
+    }
+}
+
+class TableItem extends React.Component{
+    render(){
+        const {item={}} = this.props;
+        return <tr>
+            <td>{item.id}</td>
+            <td>{item.title}</td>
+            <td>
+                <Checked item={item.completed}/>
+            </td>
+        </tr>
     }
 }
 
