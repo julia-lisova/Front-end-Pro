@@ -1,22 +1,22 @@
 import TableItem from './tableItem.js'
-import {myRandomInts} from './randomIndex.js'
 
 export default class Animals extends React.Component {
     constructor(props) {
         super(props);
-        const stateAnimList = this.state.animalList;
-        const randomIndexes = myRandomInts(this.state.animalList.length, 0, this.state.animalList.length - 1);
-        let randomIndex = 0;
 
         const chosenItem = setInterval(() => {
-            do {
-                stateAnimList[randomIndexes[randomIndex]].isActive = true;
-                randomIndex++
-            } while (randomIndex > this.state.animalList.length)
-
+            const randomIndex = this.state.listIndexes[Math.floor(Math.random() * this.state.listIndexes.length)];
             this.setState({
-                animalList: stateAnimList,
+                animalList: this.state.animalList.map((value, index) => {
+
+                    if (+randomIndex === index) {
+                        value.isActive = true;
+                    }
+                    return value
+                }),
+                listIndexes: this.state.listIndexes.filter(item => item !== randomIndex)
             }, () => {
+
                 const activeAnimals = this.state.animalList.filter((i => i.isActive));
                 if (activeAnimals.length === Math.round(this.props.animals.length / 2)) {
                     this.setState({
@@ -25,7 +25,7 @@ export default class Animals extends React.Component {
                     })
                 }
 
-                if (stateAnimList.every((i) => i.isActive)) {
+                if (this.state.animalList.every((i) => i.isActive)) {
                     clearInterval(chosenItem);
                     this.setState({
                         half: false,
@@ -38,6 +38,7 @@ export default class Animals extends React.Component {
 
     state = {
         animalList: this.props.animals,
+        listIndexes: Object.keys(this.props.animals),
         half: false,
         borderWidth: '1px'
     }
@@ -46,7 +47,7 @@ export default class Animals extends React.Component {
         const {animalList = [], half, borderWidth} = this.state;
         return animalList.length ? <table style={{borderWidth: borderWidth}}>
             <tbody>
-            {animalList.map((item, index) => <TableItem key={index} item={item} />
+            {animalList.map((item, index) => <TableItem key={index} item={item}/>
             )}
             </tbody>
         </table> : undefined

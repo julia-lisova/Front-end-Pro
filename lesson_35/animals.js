@@ -7,7 +7,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import TableItem from './tableItem.js';
-import { myRandomInts } from './randomIndex.js';
 
 var Animals = function (_React$Component) {
     _inherits(Animals, _React$Component);
@@ -19,23 +18,27 @@ var Animals = function (_React$Component) {
 
         _this.state = {
             animalList: _this.props.animals,
+            listIndexes: Object.keys(_this.props.animals),
             half: false,
             borderWidth: '1px'
         };
 
-        var stateAnimList = _this.state.animalList;
-        var randomIndexes = myRandomInts(_this.state.animalList.length, 0, _this.state.animalList.length - 1);
-        var randomIndex = 0;
 
         var chosenItem = setInterval(function () {
-            do {
-                stateAnimList[randomIndexes[randomIndex]].isActive = true;
-                randomIndex++;
-            } while (randomIndex > _this.state.animalList.length);
-
+            var randomIndex = _this.state.listIndexes[Math.floor(Math.random() * _this.state.listIndexes.length)];
             _this.setState({
-                animalList: stateAnimList
+                animalList: _this.state.animalList.map(function (value, index) {
+
+                    if (+randomIndex === index) {
+                        value.isActive = true;
+                    }
+                    return value;
+                }),
+                listIndexes: _this.state.listIndexes.filter(function (item) {
+                    return item !== randomIndex;
+                })
             }, function () {
+
                 var activeAnimals = _this.state.animalList.filter(function (i) {
                     return i.isActive;
                 });
@@ -46,7 +49,7 @@ var Animals = function (_React$Component) {
                     });
                 }
 
-                if (stateAnimList.every(function (i) {
+                if (_this.state.animalList.every(function (i) {
                     return i.isActive;
                 })) {
                     clearInterval(chosenItem);
