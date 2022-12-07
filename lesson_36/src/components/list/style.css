@@ -1,0 +1,14 @@
+.wrapper-list {
+    margin: 10px;
+    border: 1px solid black;
+    padding: 0 10px 10px;
+    min-height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapper-list-buttons {
+    display: flex;
+    column-gap: .5rem;
+}
