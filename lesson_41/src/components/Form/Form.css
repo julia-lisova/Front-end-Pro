@@ -1,0 +1,16 @@
+form {
+    margin: 10px;
+}
+
+form > div:not(:last-of-type) {
+    justify-content: space-between;
+}
+
+form > div {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.submitButton {
+    background-color: #4CAF50;
+}

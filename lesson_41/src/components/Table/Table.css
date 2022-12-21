@@ -1,0 +1,13 @@
+table {
+    border-collapse: collapse;
+    color: #4b2626;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 10px 15px;
+    border: 1px solid black;
+    text-align: center;
+}
